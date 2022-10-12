@@ -1,0 +1,538 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}	% Para caracteres en español
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{multirow,booktabs}
+\usepackage[table]{xcolor}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{calc}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{cancel}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[margin=3cm]{geometry}
+\usepackage{amsmath}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\usepackage{empheq}
+\usepackage{framed}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\colorlet{shadecolor}{orange!15}
+\parindent 0in
+\parskip 12pt
+\geometry{margin=1in, headsep=0.25in}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[subsection]
+\newtheorem{reg}{Rule}
+\newtheorem{exer}{Exercise}[subsection]
+\newtheorem{note}{Note}[subsection]
+\newtheorem{theorem}{Theorem}[subsection]
+\newtheorem{eg}{Example}
+\begin{document}
+\setcounter{section}{0}
+\title{MATH0005 NOTES}
+
+\thispagestyle{empty}
+
+\begin{center}
+{\LARGE \bf MATH0005 Algebra 1}\\
+%{\large \bf 1 Logic}\\
+\quad\\
+{\Large \bf Fall 2022}
+\end{center}
+\tableofcontents
+\newpage
+
+\section{Logic}
+\subsection{Propositional calculus}
+\begin{shaded}
+\begin{defn}
+    A \textbf{proposition} is a mathematical statement which is either true or false.
+\end{defn}
+\end{shaded}
+Here are some example propositions:
+    \begin{itemize}
+        \item 123456 is a prime number.
+        \item The function $f(x)= \sin x$ is continuous.
+        \item $1+1=2$
+        \item The Riemann hypothesis is false.
+    \end{itemize}
+Proposition might be true or false. All the propositions have their \textit{well-defined truth value}, even if we do not know what it is. One typical example showing a sentence is not a proposition is, ``$n$ is even'', since it does not have a \textit{well-defined truth value} until we know what $n$ is.
+
+\begin{shaded}
+\begin{defn}
+\textbf{Truth value} is the attribute of a proposition as to whether the proposition is true or false.
+\end{defn}
+\end{shaded}
+
+Here is an example:
+\begin{itemize}
+    \item The \textit{truth value} for ``''$7$ is odd'' is \textit{true}, which can be denoted as \textbf{T}.
+    \item The \textit{truth value} for ``''$7$ is even'' is \textit{false}, which can be denoted as \textbf{F}.
+\end{itemize}
+
+\subsection{Logical connectives}
+\begin{shaded}
+\begin{defn}
+    \textbf{Connectives} are symbols used to connect two or more propositional or predicate logics in such a manner that resultant logic depends only on the input logics and the meaning of the connective used.
+\end{defn}    
+\end{shaded}
+
+The standard connectives introduced here are `\textit{and}', `\textit{or}', `\textit{not}', `\textit{implies}' and `\textit{if and only if}' (iff, for short).
+
+Here are some examples of propositions which contain connectives:
+\begin{itemize}
+    \item \textbf{AND} ``34043 is a sum of two squares \textit{and} 34043 is divisible by 17''
+    \item \textbf{OR} ``34043 is a sum of two squares \textit{or} 34043 is divisible by 17''
+    \item \textbf{NOT} ``It is \textit{not} true that 34043 is a sum of two squares''
+    \item \textbf{IMPLIES} ``34043 is odd \textit{implies} 34043 is divisible by 3''
+    \item \textbf{IF AND ONLY IF} ``An odd number is a sum of two squares, \textit{if and only if} it leaves remainder 1 when you divide it by 4''
+\end{itemize}
+
+Notice that \textbf{implies} is often express as ``\textbf{if $\dots$ then}''.
+
+The sentence ``34043 is odd \textit{implies} 34043 is divisible by 3'' could be written as ``\textit{If} 34043 is odd \textit{then} 34043 is divisible by 3''.
+
+\subsection{Well-formed formulae}
+\subsubsection{Variables and connective symbols}
+\begin{shaded}
+\begin{defn}
+    \textbf{Propositional variables} are symbols that represent a proposition.
+\end{defn}    
+\end{shaded}
+Traditionally, we use lower case English letters like $p,q,r,\dots$ or letters with subscripts $p_{1},p_{2}$ to represent propositional variables.
+
+For the logical connectives we discussed before, we also have symbols.
+\begin{shaded}
+\textbf{Connectives symbols}
+\begin{itemize}
+    \item $\wedge$ represents \textit{and}.
+    \item $\vee$ represents \textit{or}.
+    \item $\Rightarrow or \rightarrow$ represents \textit{implies}.
+    \item $\neg$ represents \textit{not}.
+    \item Besides, we also use brackets: $($ and $)$.
+\end{itemize}    
+\end{shaded}
+By collections of propositional variables, connectives and brackets, we could start to build formulae.
+\begin{note}
+    \textbf{Well-formed formulae} are defined as the collections of those logical propositions with sensible meaning.
+\end{note}
+
+\subsubsection{Definition of a well-formed formula}
+By definition, something is a \textbf{Well-formed formula}, or \textbf{WFF} for short, if and only if it can be constructed using these rules below:
+\begin{shaded}
+\textbf{Rules of WFFs}
+\begin{enumerate}
+    \item A propositional variable is a WFF.
+    \item If $\phi$ and $\psi$ are any two WFFs, then
+        \begin{enumerate}
+            \item $(\phi \wedge \psi)$ is a WFF,
+            \item $(\phi \vee \psi)$ is a WFF,
+            \item $(\phi \Rightarrow \psi)$ is a WFF
+            \item $\neg \phi$ is a WFF.
+        \end{enumerate}
+\end{enumerate}
+\end{shaded}
+
+\subsubsection{WFF examples}
+Here are some examples of WFFs.\\
+Suppose we have $p$ and $q$ as propositional variables. Then we have following WFFs:
+\begin{itemize}
+    \item $p$ is a WFF (from \textit{Rule 1}).
+    \item $(p \Rightarrow q)$ is a WFF (from \textit{Rule 1 twice then Rule 2.c}).
+    \item $\neg q$ is a WFF (from \textit{Rule 1 then Rule 2.d}).
+    \item $((p \Rightarrow q) \vee \neg q)$ is a WFF. Since $(p \Rightarrow q)$ and $\neg q$ are WFFs, and by \textit{Rule 2.b} the whole thing is a WFF.
+    \item $\neg \neg (p \Rightarrow q)$ is a WFF. Since $(p \Rightarrow q)$ is a WFF, by using \textit{Rule 2.d} twice, the whole thing is a WFF.
+\end{itemize}
+
+Notice that things can be WFFs \textbf{only} when using those rules. Thereby formulae below are not WFFs:
+\begin{itemize}
+    \item $p \vee q$, missing the brackets $()$.
+    \item $(p \wedge q \wedge r)$. It should be corrected as $((p \wedge q) \wedge r)$ or $(p \wedge (q \wedge r))$.
+\end{itemize}
+
+\subsection{Truth tables}
+Notice that a \textbf{Well-formed formula} like $(p \wedge q)$ is not true or false on its own: it totally depends on the truth or falsity of the statements represented by the propositional variables $p$ and $q$. Once we decide the truth value of propositional variables in a WFF, we can give a truth value to the whole WFF.
+
+\begin{note}
+    A \textbf{Truth-table} shows how the truth value of a WFF depends on its propositional variables and connectives.
+\end{note}
+
+\subsubsection{Truth assignments for propositional variables}
+\begin{shaded}
+\begin{defn}
+    A \textbf{truth assignment} for a set $V$ of propositional variables is a function $v: V \rightarrow \left\{T,F\right\}$.
+\end{defn}
+\end{shaded}
+Here and elsewhere, $T$ represents true and $F$ represents false.
+\begin{eg}
+    If $p$ and $q$ are propositional variables and $V = \left\{p,q\right\}$, then there is a truth assignment $v$ for $V$ such that $v(p)=T$ and $v(q)=F$.
+\end{eg}
+
+\subsubsection{Extending a truth assignment to WFFs}
+The truth assignment to WFF is more complex compared with assignments to propositional variables themselves, since it also depends on the intended meaning of the logical connectives.
+
+Consider the following WFF:
+\begin{equation}
+    ((p \Rightarrow (q \vee r)) \Rightarrow (\neg p \vee q))
+\end{equation}
+
+Suppose that we somehow already knew the truth values of $p,q,r$, we still need to know about the truth value of formulae connected with those connectives $\wedge, \vee, \Rightarrow and \neg$.
+
+Let us start with the connective $\wedge$ (\textit{and}):
+
+Since $\wedge$ represents the ordinary usage of the word ``and'', it would be sensible to assign $(\psi \wedge \psi)$ is true if and only if both $\phi$ and $\psi$ are true.
+
+Here we have the \textbf{truth table} for $\wedge$:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{$\phi$} & \textbf{$\psi$} & \textbf{$(\phi \wedge \psi)$} \\ \hline
+    T          & T          & T          \\ \hline
+    T          & F          & F          \\ \hline
+    F          & T          & F          \\ \hline
+    F          & F          & F          \\ \hline
+    \end{tabular}
+    \caption[]{Truth table for $\wedge$}
+\end{table}
+
+By using the truth table above, we could assign the truth value to a WFF $(\phi \wedge \psi)$.
+
+Here are some examples:
+
+\begin{eg}
+    If $v(\psi)=T$ and $v(\phi)=T$, then $v(\psi \wedge \phi)$ will be $T$.
+\end{eg}
+
+\begin{eg}
+    If the propositional variables ``$p:$ \textit{Today is Thursday}'' and ``$q:$ \textit{Today is raining}'' are true, then the proposition ``\textit{Today is Thursday and is raining}'' is true.
+\end{eg}
+
+Here are the truth tables for other connectives in our language.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{$\phi$} & \textbf{$\psi$} & \textbf{$(\phi \vee \psi)$} \\ \hline
+    T          & T          & T          \\ \hline
+    T          & F          & T          \\ \hline
+    F          & T          & T          \\ \hline
+    F          & F          & F          \\ \hline
+    \end{tabular}
+    \caption[]{Truth table for $\vee$}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{$\phi$} & \textbf{$\psi$} & \textbf{$(\phi \Rightarrow \psi)$} \\ \hline
+    T          & T          & T          \\ \hline
+    T          & F          & F          \\ \hline
+    F          & T          & T          \\ \hline
+    F          & F          & T          \\ \hline
+    \end{tabular}
+    \caption[]{Truth table for $\Rightarrow$}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+    \textbf{$\phi$} & \textbf{$(\neg \phi)$} \\ \hline
+    T          & F          \\ \hline
+    F          & T          \\ \hline
+    \end{tabular}
+    \caption[]{Truth table for $\neg$}
+\end{table}
+
+Notices that for all truth assignments we could think about as a way to combine two truth values into another truth value, just like $+$ combines two numbers into another number. Thereby we could have this conclusion:
+\begin{itemize}
+    \item $T \wedge T = T$, $T \wedge F = F$, $F \wedge T = F$, $F \wedge F = F$
+    \item $T \vee T = T$, $T \vee F = T$, $F \vee T = T$, $F \vee F = F$
+    \item $T \Rightarrow T = T$, $T \Rightarrow F = F$, $F \Rightarrow T = T$, $F \Rightarrow F = T$
+    \item $\neg T = F$, $\neg F = T$
+\end{itemize}
+
+\subsection{Truth values for WFFs}
+For a truth assignment $v: V \rightarrow \left\{T,F\right\}$, we could extend the function $v$ so that it gives a truth value to any WFF using the propositional variables V such that for any WFFs $\phi$ and $\psi$.
+\begin{gather}
+    v((\phi \wedge \psi)) = v(\phi) \wedge v(\phi)\\
+    v((\phi \vee \psi)) = v(\phi) \vee v(\psi)\\
+    v((\phi \Rightarrow \psi)) = v(\phi) \Rightarrow v(\psi)\\
+    v((\neg \phi)) = \neg v(\phi)
+\end{gather}
+
+This could support the idea that connective symbols are not just as parts of WFFs but as ways of combing truth values. Here are some examples:
+
+Suppose $V \rightarrow \left\{\phi,\psi\right\}$ and $v(\phi)=T$, $v(\psi)=F$, we could have
+\begin{eg}
+    \begin{equation}
+        \begin{split}
+            v((\phi \wedge \psi)) &= v(\phi) \wedge v(\phi)\\
+                                  &= T \wedge F\\
+                                  &= F
+        \end{split}
+    \end{equation}
+\end{eg}
+
+\begin{eg}
+    \begin{equation}
+        \begin{split}
+             v((\neg \phi) \Rightarrow (\phi \vee \psi)) &= v(\neg \phi) \Rightarrow v(\phi \vee \psi)\\
+                                                           &= \neg v(\phi) \Rightarrow (v(\phi) \vee v(\psi))\\
+                                                           &= F \Rightarrow (T \vee F)\\
+                                                           &= F \Rightarrow T\\
+                                                           &= T
+        \end{split}
+    \end{equation}    
+\end{eg}
+
+\begin{eg}
+    Let $\alpha = ((p \wedge q) \vee (\neg p \wedge \neg q))$, $v(p)=T$, $v(q)=F$. Let us find $v(\alpha)$.\\
+    Firstly let expand $v(\alpha)$ as $v(((p \wedge q) \vee (\neg p \wedge \neg q))$,\\
+    We have:
+    \begin{equation}
+        \begin{split}
+            v(\alpha)&= v(((p \wedge q) \vee (\neg p \wedge \neg q)) \\
+                     &= v(p \wedge q) \vee v(\neg p \wedge \neg q)\\
+                     &= (v(p) \wedge v(q)) \vee (v(\neg p) \wedge v(\neg q))\\
+                     &= (v(p) \wedge v(q)) \vee (\neg v(p) \wedge \neg v(q))\\
+                     &= (T \wedge F) \vee (\neg T \wedge \neg F)\\
+                     &= F \vee (F \wedge T)\\
+                     &= F \vee F\\
+                     &= F
+        \end{split}
+    \end{equation}
+\end{eg}
+
+\begin{eg}
+    Consider a WFF $\phi=(p \Rightarrow (p \Rightarrow p))$ and $v(p)=T$. Let find $v(\phi)$.
+    We have:
+    \begin{equation}
+        \begin{split}
+            v(\phi) &= v(p \Rightarrow (p \Rightarrow p))\\
+                    &= v(p) \Rightarrow (v(p \Rightarrow p))\\
+                    &= v(p) \Rightarrow (v(p) \Rightarrow v(p))\\
+                    &= T \Rightarrow (T \Rightarrow T)\\
+                    &= T \Rightarrow T\\
+                    &= T
+        \end{split}
+    \end{equation}
+    If we work out the truth value of $\phi$ when $v(p)=F$, we would find the result of $v(\phi)$ is also $T$:
+    \begin{equation}
+        \begin{split}
+            v(\phi) &= v(p \Rightarrow (p \Rightarrow p))\\
+                    &= v(p) \Rightarrow (v(p \Rightarrow p))\\
+                    &= v(p) \Rightarrow (v(p) \Rightarrow v(p))\\
+                    &= F \Rightarrow (F \Rightarrow F)\\
+                    &= F \Rightarrow T\\
+                    &= T
+        \end{split}
+    \end{equation}
+\end{eg}
+
+We would observe the WFF $\phi$ is true for \textit{every} truth assignment of its variables, and we call WFF with this property as \textbf{tautology}.
+
+\begin{shaded}
+\begin{defn}
+    A formula of propositional logic is a \textbf{tautology} if the formula itself is always \textit{true}, regardless of which valuation is used for the propositional variables. 
+\end{defn}
+\end{shaded}
+
+Here are some examples of tautology:
+\begin{itemize}
+    \item $(A \vee \neg A)$
+    \item $((A \Rightarrow B) \wedge (B \Rightarrow C)) \Rightarrow (A \Rightarrow C)$
+\end{itemize}
+
+Similarly, we would have another kind of WFFs for which is false for \textit{every} truth assignment of its variables, and we call WFF with this property as \textbf{contradiction}.
+
+\begin{shaded}
+\begin{defn}
+    A formula of propositional logic is a \textbf{contradiction} if the formula itself is always \textit{false}, regardless of which valuation is used for the propositional variables. 
+\end{defn}
+\end{shaded}
+
+Here are some examples of tautology:
+\begin{itemize}
+    \item $(A \wedge \neg A)$
+    \item $\neg (p \Rightarrow (q \Rightarrow p))$
+\end{itemize}
+
+\subsection{Logical equivalence}
+Consider the following two WFFs:
+\begin{gather}
+    \phi = (p \wedge q)\\
+    \psi = (q \wedge p)
+\end{gather}
+
+The formulae $\phi$ and $\psi$ are \textit{different} WFFs. However, no matter what truth assignment we give, the formulae $\phi$ and $\psi$ could always get equal truth values. Here is the proof:
+
+\begin{equation}
+    \begin{split}
+        v(\phi) &= v(p \wedge q)\\
+                &= v(p) \wedge v(q)
+    \end{split}
+\end{equation}
+
+\begin{equation}
+    \begin{split}
+        v(\psi) &= v(q \wedge p)\\
+                &= v(q) \wedge v(p)
+    \end{split}
+\end{equation}
+
+And no matter what $v(q)$ and $v(p)$ is, $v(p) \wedge v(q)$ always equals to $v(q) \wedge v(p)$.
+
+\begin{shaded}
+\begin{defn}
+    Two WFFs $\phi$ and $\psi$ are called \textbf{logically equivalent}, denoted as $\phi \equiv \psi$, if and only if they have the same truth value under every possible truth assignment. 
+\end{defn}
+\end{shaded}
+
+The idea of logically equivalence is useful for us to prove something is true, because we can prove some logically equivalent formula instead if it is easier to interpret.
+\begin{theorem}
+    \textit{Let $\phi$, $\psi$ and $\theta$ be WFFs, then}
+    \begin{enumerate}
+        \item $(\phi \wedge \psi) \equiv (\psi \wedge \phi)$ \textit{[Commutativity properties for $\wedge$]}
+        \item $(\phi \vee \psi) \equiv (\psi \vee \phi)$ \textit{[Commutativity properties for $\vee$]}
+        \item $(\phi \wedge (\psi \wedge \theta) \equiv ((\psi \wedge \phi) \wedge \theta)$ \textit{[Associativity Properties]}
+        \item $(\phi \vee (\psi \vee \theta) \equiv ((\psi \vee \phi) \vee \theta)$ \textit{[Associativity Properties]}
+    \end{enumerate}
+\end{theorem}
+\newpage
+
+\begin{comment}
+\begin{note}
+\textbf{Capital Letters refer to the accelerating reference frame \textit{S} while lowercase letters refer to the inertial reference frame S$_0$}
+\end{note}
+Picture a moving reference frame, \textit{S}, moving relative to S$_0$. Imagine in the the moving reference frame that a ball with mass, \textit{m} is being thrown. 
+In order to consider the motion of the ball, the motion must be first considered in the inertial reference frame. 
+\begin{equation}
+F = m\ddot{r_0}
+\end{equation}
+Where r$_0$ is the ball's position relative to S$_0$. 
+
+Now, by considering the motion of the ball in the accelerating frame, the ball position relative to \textit{S} is \textit{R}. (It's velocity is $\dot{R}$. 
+Thus, relating \textit{R} to $r_0$, we have: 
+\begin{equation}
+\dot{r_0} = \dot{R} + V
+\end{equation}
+Newton's second law for the inertial reference frame by differentiate and multiplying by mass is:
+\begin{equation}
+F_{\text{inertial}} = -mA = -m\ddot{R}
+\end{equation}
+\subsection{The Tides}
+\begin{shaded}
+\textbf{The Tidal Force} \newline
+\begin{equation}
+F_{tide} = -GM_mm(\frac{\hat{d}}{d^2}-\frac{\hat{d_0}}{d_0^2})
+\end{equation}
+Where:
+\begin{equation*}
+\begin{split}
+G = \text{Gravitational Constant} \\
+d = \text{Object's Position Relative to Moon} \\
+d_0 = \text{Earth's Center Relative to the moon}\\
+M_m = \text{Mass of the moon}
+\end{split}
+\end{equation*}
+\end{shaded}
+\newpage
+\subsection{The Angular Velocity Vector}
+The rest of the notes and the chapter will over reference frames that are rotating with respect to the inertial reference frame, so angular velocity has to be used. 
+\begin{defn}
+\textbf{Euler's Theorem} - The most general motion of any body relative to a fixed point \textit{O} is a rotation about some axis through \textit{O} To specify this rotation about a given point O, we only have to give the direction of the axis and the rate of rotation, or angular velocity $\omega$. Because this has a magnitude and direction, it is an obvious choice to write this rotation vector as $\omega$, the angular velocity vector. That is:
+\begin{equation}
+\omega = \omega\textbf{u}
+\end{equation}
+Where \textbf{u} is the unit vector
+\end{defn}
+\begin{shaded}
+\textbf{Vector Velocity}\newline
+The velocity at any point, \textit{P} (position, \textit{r}) is given by:
+\begin{equation}
+v = \omega\  x \ r
+\end{equation}
+\end{shaded}
+\subsection*{Addition of Angular Velocities}
+One can add angular velocities just like linear velocities. If body 3 is rotating at angular velocity $\omega_{32}$ relative to frame 2, and frame 2 is rotating at angular velocity $\omega_{21}$ relative to frame 1, then body 3 is rotating relative to frame 1 at angular velocity: 
+\begin{equation}
+\omega_{31} = \omega_{32} + \omega_{21}
+\end{equation}
+\subsection{Time Derivatives in Rotating Frames}
+If frame S has a angular velocity, $\Omega$ relative to S$_0$ then the time derivative of a single vector \textbf{Q} as seen in the two frames are related by:
+\begin{equation}
+(\frac{d\textbf{Q}}{dt})_{S_0} = (\frac{d\textbf{Q}}{dt})_{S} \ + \Omega \ x \ \textbf{Q}
+\end{equation}
+\subsection{Netwon's Second Law in a Rotating Frame}
+A particle in an inertial reference frame, S$_0$ obeys Newton's second law as we are use to:
+\begin{equation}
+m\frac{d^2r}{dt^2} = F
+\end{equation}
+Using the results from equation 8, the time derivative for a rotating frame with reference to an inertial frame can be given by:
+\begin{equation}
+(\frac{dr}{dt})_{S_0} = (\frac{dr}{dt})_s \ + \Omega \ x \ r
+\end{equation}
+By differentiation, Newton's second law becomes:
+\begin{equation}
+m\ddot{r} = F + 2m\dot{r} \ x \ \Omega \ + m(\Omega \ x \ r) \ x \ \Omega
+\end{equation}
+Where \textit{F} is the sum of all forces in the inertial reference frame. 
+\subsection{The Centrifugal Force}
+This is an inertial force in a rotating reference frame 
+\begin{equation}
+F_{\text{cf}} = m(\Omega \ x \ r) \ x \ \Omega
+\end{equation}
+\subsubsection*{Free-Fall Acceleration (Non-Vertical Gravity)}
+\begin{equation}
+F_{\text{eff}} = F_{\text{grav}} + F_{\text{cf}} = mg_0 + m\Omega^2R\sin(\theta)\hat{\rho}
+\end{equation}
+The acceleration due to the Centrifugal force is simply 
+\begin{equation}
+\begin{split}
+g = g_0 + \Omega^2R\sin(\theta)\hat{\rho} \\
+g_{\text{rad}} = g_0 - \Omega^2R\sin^2(\theta)  \\
+g_{\text{tan}} = \Omega^2R\sin(\theta)\cos(\theta)
+\end{split}
+\end{equation}
+The angle between g and its radial direction is:
+\begin{equation}
+\alpha \approx \frac{g_{\text{tan}}}{g_{\text{rad}}} 
+\end{equation}
+The maxium value at ($\theta$ = 45):
+\begin{equation}
+\alpha_{\text{max}} =  \frac{\Omega^2R}{2g_0}
+\end{equation}
+\subsection{Coriolis Force}
+The Coriolis Force is another inertial force in a rotating reference frame that an object experiences when it is moving. 
+\begin{equation}
+F_{\text{cor}} = 2m\dot{r} \ x \ \Omega = 2mv \ x \ \Omega
+\end{equation}
+The maximum acceleration, \textit{a} that the Coriolis force could produce acting by itself with \textit{v} perpendicular to $\Omega$ is:
+\begin{equation}
+a_{\text{max}} = 2v\Omega 
+\end{equation}
+\begin{shaded}
+\textbf{Direction of the Coriolis Force} \newline
+The Direction of the Coriolis force us always perpendicular to the velocity of the object (hence equation 17), and is given by the right hand rule. 
+\end{shaded}
+\newpage
+\subsection{Free Fall and the Coriolis Force}
+\begin{equation}
+m\ddot{r} = mg_0 + F_{\text{cf}} + F_{\text{cor}} 
+\end{equation}
+\subsection{The Foucault Pendulum}
+See chapter 9, Page 354. There is no need to recopy what is in the book here. 
+\end{comment}
+\end{document}
