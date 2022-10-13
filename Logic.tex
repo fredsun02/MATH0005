@@ -35,7 +35,7 @@
 \newtheorem{exer}{Exercise}[subsection]
 \newtheorem{note}{Note}[subsection]
 \newtheorem{theorem}{Theorem}[subsection]
-\newtheorem{eg}{Example}
+\newtheorem{eg}{Example}[subsection]
 \begin{document}
 \setcounter{section}{0}
 \title{MATH0005 NOTES}
@@ -75,8 +75,8 @@ Proposition might be true or false. All the propositions have their \textit{well
 
 Here is an example:
 \begin{itemize}
-    \item The \textit{truth value} for ``''$7$ is odd'' is \textit{true}, which can be denoted as \textbf{T}.
-    \item The \textit{truth value} for ``''$7$ is even'' is \textit{false}, which can be denoted as \textbf{F}.
+    \item The \textit{truth value} for ``$7$ is odd'' is \textit{true}, which can be denoted as \textbf{T}.
+    \item The \textit{truth value} for ``$7$ is even'' is \textit{false}, which can be denoted as \textbf{F}.
 \end{itemize}
 
 \subsection{Logical connectives}
@@ -401,6 +401,7 @@ And no matter what $v(q)$ and $v(p)$ is, $v(p) \wedge v(q)$ always equals to $v(
 \end{shaded}
 
 The idea of logically equivalence is useful for us to prove something is true, because we can prove some logically equivalent formula instead if it is easier to interpret.
+\begin{shaded}
 \begin{theorem}
     \textit{Let $\phi$, $\psi$ and $\theta$ be WFFs, then}
     \begin{enumerate}
@@ -408,8 +409,179 @@ The idea of logically equivalence is useful for us to prove something is true, b
         \item $(\phi \vee \psi) \equiv (\psi \vee \phi)$ \textit{[Commutativity properties for $\vee$]}
         \item $(\phi \wedge (\psi \wedge \theta) \equiv ((\psi \wedge \phi) \wedge \theta)$ \textit{[Associativity Properties]}
         \item $(\phi \vee (\psi \vee \theta) \equiv ((\psi \vee \phi) \vee \theta)$ \textit{[Associativity Properties]}
+        \item $(\phi \wedge (\psi \vee \theta)) \equiv ((\phi \wedge \psi) \vee (\phi \wedge \theta)))$ \textit{[Distributivity]}
+        \item $(\phi \vee (\psi \wedge \theta)) \equiv ((\phi \vee \psi) \wedge (\phi \vee \theta)))$ \textit{[Distributivity]}
     \end{enumerate}
 \end{theorem}
+\end{shaded}
+
+\subsection{Double negation}
+\begin{shaded}
+\begin{theorem}
+    \textit{Let $\phi$ be WFF, then}
+    \begin{equation}
+        \neg \neg \phi \equiv \phi
+    \end{equation}
+\end{theorem}
+\end{shaded}
+\begin{proof}
+    Define function $v: V \rightarrow \left\{T,F\right\}$.\\
+    If $v(\phi)=T$, then $v(\neg \neg \phi)=\neg (\neg v(\phi))=\neg (\neg T)=\neg F=T$;\\
+    If $v(\phi)=F$, then $v(\neg \neg \phi)=\neg (\neg v(\phi))=\neg (\neg F)=\neg T=F$.\\
+    Therefore under any truth assignment $v$ we have $v(\phi)=v(\neg \neg \phi)$.
+\end{proof}
+
+\subsection{De Morgan's Laws}
+\begin{shaded}
+\begin{theorem}
+    \textit{Let $\phi$ and $\psi$ be WFFs, then}
+    \begin{enumerate}
+        \item $\neg (\phi \wedge \psi)=(\neg \phi \vee \neg \psi)$
+        \item $\neg (\phi \vee \psi)=(\neg \phi \wedge \neg \psi)$
+    \end{enumerate}
+\end{theorem}
+\end{shaded}
+
+\begin{proof}
+    By checking the possibilities for the truth values of $\phi$ and $\psi$ under any assignment.
+\end{proof}
+
+Notice that \textbf{De Morgan's Laws} can be generalised to more than two WFFs.
+\begin{shaded}
+\begin{theorem}
+    \textit{Let $\phi$ and $\psi$ be WFFs, then}
+    \begin{enumerate}
+        \item $\neg (\phi_{1} \wedge \dots \wedge \phi_{n}) \equiv (\neg \phi_{1} \vee \dots \vee \neg \phi_{n})$
+        \item $\neg (\phi_{1} \vee \dots \vee \phi_{n}) \equiv (\neg \phi_{1} \wedge \dots \neg \phi_{n})$
+    \end{enumerate}
+\end{theorem}
+\end{shaded}
+
+\subsection{Contrapositive}
+\subsubsection{Equivalence between $\Rightarrow$ and combination of $\neg$ and $\vee$}
+\begin{shaded}
+    \begin{theorem}
+        \textit{Let $\phi$ and $\psi$ be WFFs, then}
+        \begin{equation}
+            (\phi \Rightarrow \psi) \equiv (\neg \phi \vee \psi) \label{Rightarrowreplacement}
+        \end{equation}
+    \end{theorem}
+\end{shaded}
+\begin{proof}
+    \quad \\
+    Suppose that if $\phi$ is true, then $v(\phi \Rightarrow \psi)=T$ when $v(\psi)=T$, and $v(\phi \Rightarrow \psi)=F$ when $v(\psi)=F$. Similarly when $\phi$ is false,  then $v(\phi \Rightarrow \psi) \equiv T$ regardless of the truth value of $\psi$.\\
+    On the other hand if $\phi$ is true, then $\neg \phi$ is false. When $\psi$ is true $v(\neg \phi \vee \psi)=T$. When $\psi$ is false  $v(\neg \phi \vee \psi)=F$. Similarly when $\phi$ is false, $\neg \phi$ is true. Therefore no matter what the truth value of $\psi$ is, $v(\neg \phi \vee \psi) \equiv T$.\\
+    Therefore, 
+    \begin{equation}
+        (\phi \Rightarrow \psi) \equiv (\neg \phi \vee \psi)
+    \end{equation}
+\end{proof}
+
+\subsubsection{Contrapositive}
+\begin{shaded}
+    \begin{defn}
+        \textbf{Contrapositive} of an implication $A \Rightarrow B$ is defined as $\neg B \Rightarrow \neg A$. 
+    \end{defn}
+\end{shaded}
+Regardless of the truth value of $A$ and $B$, the truth value of a proposition always equals to the truth value of its contrapositive proposition.\\
+Here is a proof.
+\begin{proof}
+    \begin{equation}
+        \begin{split}
+            (A \Rightarrow B) & \equiv (A \vee \neg B)\\
+                              & \equiv ((\neg \neg A) \vee \neg B)\\
+                              & \equiv (\neg A \Rightarrow \neg B)
+        \end{split}
+    \end{equation}
+\end{proof}
+The equivalence between a proposition and its contrapositive proposition provides a useful tool to simplify some proof processes. It is sometimes easier to proof the contrapositive $\neg B \Rightarrow \neg A$ compared with the original one. We here have one example to support:
+\begin{center}
+    $x^2$ is an irrational number implies $x$ is an irrational number.\\
+    (\textit{$\forall x^2 \in (\mathbb{R} - \mathbb{Q}) \Rightarrow x \in (\mathbb{R} - \mathbb{Q})$ })
+\end{center}
+
+The contrapositive of this proposition is:
+\begin{center}
+    $x$ is a rational number implies $x^2$ is a rational number.\\
+    (\textit{$\forall x \in \mathbb{R} \Rightarrow x^2 \in \mathbb{R}$})
+\end{center}
+
+It is clear that the contrapositive is easier to prove because when $x$ is a rational number we know $x=p/q$. Therefore $x^2=p^2/q^2$ must be a rational number either.
+
+\subsubsection{Converse}
+\begin{shaded}
+    \begin{defn}
+        \textbf{Converse} of an implication $A \Rightarrow B$ is defined as $ B \Rightarrow A$. 
+    \end{defn}
+\end{shaded}
+Unlike contrapositive, the proposition and its converse is \textbf{not} in general logically equivalent. Here is a contradiction example:
+\begin{proof}
+    \textit{Suppose ($A \Rightarrow B$) $\equiv$ ($B \Rightarrow A$):}
+    When $v(A)=T$ and $v(B)=F$,
+    \begin{equation}
+        v(A \Rightarrow B) = T \Rightarrow F = F.
+    \end{equation}
+    But
+    \begin{equation}
+        v(B \Rightarrow A) = F \Rightarrow T = T.
+    \end{equation}
+    Therefore,
+    ($A \Rightarrow B$) $\not \equiv$ ($B \Rightarrow A$)
+\end{proof}
+
+\subsection{Adequacy}
+\begin{shaded}
+    \begin{defn}
+        A set of connectives is \textbf{adequacy} if every WFF is logically equivalent to one using only the connectives from the set.
+    \end{defn}
+\end{shaded}
+\textbf{Theorem 1.9.1. $            (\phi \Rightarrow \psi) \equiv (\neg \phi \vee \psi)$} shows how we use $\neg$ and $\vee$ to replace the symbol $\Rightarrow$.
+
+By using this theorem, all the occurrence of $p \Rightarrow q$ could be replaced by $(\neg p) \vee q$. This shows that the set $\left\{ \wedge,\vee,\neg \right\}$ is adequate.
+
+However, we could still find other even smaller adequate sets.
+
+\begin{shaded}
+    \begin{theorem}
+        $\left\{ \vee, \neg \right\}$ is adequate.
+    \end{theorem}
+\end{shaded}
+
+\begin{proof}
+    \quad \\
+    Since we have already know the set $\left\{ \wedge,\vee,\neg \right\}$ is adequate, according to the \textbf{De Morgan's Laws}, all the occurrence of $(p \wedge q)$ could be replaced by $\neg ((\neg p) \vee (\neg q))$, which only contains the symbols $\neg$ and $\vee$.\\
+    Therefore, $\left\{ \vee, \neg \right\}$ is adequate.
+\end{proof}
+
+Here is an example:
+\begin{eg}
+    Consider a proposition:
+    \begin{equation}
+        p \Rightarrow (q \wedge r)
+    \end{equation}
+    It could be replaced by the symbol $\vee$ and $\neg$.
+    \begin{equation}
+        \begin{split}
+            p \Rightarrow (q \wedge r) & \equiv (\neg p) \vee (q \wedge r)\\
+                                       & \equiv (\neg p) \vee \neg ((\neg q) \vee (\neg r)).
+        \end{split}
+    \end{equation}
+\end{eg}
+
+\begin{shaded}
+    \begin{theorem}
+        $\left\{ \wedge, \neg \right\}$ is adequate.
+    \end{theorem}
+\end{shaded}
+
+\begin{proof}
+    \quad \\
+    The proof of this theorem is similar with the one above.\\
+    According to \textbf{De Morgan's Laws}, all the occurrence of $(p \vee q)$ could be replaced by $\neg ((\neg p) \wedge (\neg q))$.
+\end{proof}
+
+\subsubsection{Do we have sets of connectives that are not adequate?}
+It is clear the symbol $\wedge$, $\vee$ and $\Rightarrow$ is not adequate by themselves. But if we define new connectives like $p \uparrow q = \neg (p \wedge q)$ or $p \downarrow q = \neg (p \vee q)$, it can be shown that both $\left\{ \uparrow \right\}$ and $\left\{ \downarrow \right\}$ are adequate.
 \newpage
 
 \begin{comment}

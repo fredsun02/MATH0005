@@ -1,10 +1,10 @@
 # Fdb version 3
-["pdflatex"] 1665613240 "c:/Users/Fred Sun/OneDrive/Uni/MATH0005/1 Logic/Logic.tex" "Logic.pdf" "Logic" 1665613243
-  "Logic.aux" 1665613242 1936 57ec203346190a7c02cc3411911b657e "pdflatex"
-  "Logic.tex" 1665613239 23123 140b182930d66308cb54fa0028a6c9a3 ""
-  "Logic.toc" 1665613242 922 0f651306cfa60b5d260762568e49881b "pdflatex"
+["pdflatex"] 1665695971 "c:/Users/Fred Sun/OneDrive/Uni/MATH0005/1 Logic/Logic.tex" "Logic.pdf" "Logic" 1665695973
+  "Logic.aux" 1665695973 2957 e90d5724bc8f3c683b496272640d5fd9 "pdflatex"
+  "Logic.tex" 1665695970 30677 61301d35ce0e73aa88cfb81e1680c0d1 ""
+  "Logic.toc" 1665695973 1569 ec77e8e4f1d0cb7098d50fcca863b111 "pdflatex"
   "c:/Users/Fred" 1657463587 18961 a61b30399d705367296bf361644b0cab ""
-  "c:/Users/Fred Sun/OneDrive/Uni/MATH0005/1 Logic/Logic.tex" 1665613239 23123 140b182930d66308cb54fa0028a6c9a3 ""
+  "c:/Users/Fred Sun/OneDrive/Uni/MATH0005/1 Logic/Logic.tex" 1665695970 30677 61301d35ce0e73aa88cfb81e1680c0d1 ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1665443454 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1665443814 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1665443661 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -34,10 +34,12 @@
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1665443179 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1665443179 32080 340ef9bf63678554ee606688e7b5339d ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1665443179 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1665443179 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1665443179 35752 024fb6c41858982481f6968b5fc26508 ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1665443179 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1665443179 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1665443179 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1665443179 34694 870c211f62cb72718a00e353f14f254d ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb" 1665443454 145929 5c9aebea9ba6e33fc93158c04a3bdcd8 ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1665444392 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "d:/Program Files (x86)/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty" 1665444012 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""

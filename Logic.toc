@@ -10,3 +10,11 @@
 \contentsline {subsubsection}{\numberline {1.4.2}Extending a truth assignment to WFFs}{5}{}%
 \contentsline {subsection}{\numberline {1.5}Truth values for WFFs}{7}{}%
 \contentsline {subsection}{\numberline {1.6}Logical equivalence}{9}{}%
+\contentsline {subsection}{\numberline {1.7}Double negation}{10}{}%
+\contentsline {subsection}{\numberline {1.8}De Morgan's Laws}{10}{}%
+\contentsline {subsection}{\numberline {1.9}Contrapositive}{10}{}%
+\contentsline {subsubsection}{\numberline {1.9.1}Equivalence between $\Rightarrow $ and combination of $\neg $ and $\vee $}{10}{}%
+\contentsline {subsubsection}{\numberline {1.9.2}Contrapositive}{11}{}%
+\contentsline {subsubsection}{\numberline {1.9.3}Converse}{12}{}%
+\contentsline {subsection}{\numberline {1.10}Adequacy}{12}{}%
+\contentsline {subsubsection}{\numberline {1.10.1}Do we have sets of connectives that are not adequate?}{13}{}%
