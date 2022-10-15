@@ -965,8 +965,8 @@ INPUT d:/Program Files (x86)/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
 INPUT d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
-OUTPUT Logic.toc
 INPUT d:/Program Files (x86)/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+OUTPUT Logic.toc
 INPUT d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT d:/Program Files (x86)/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm

@@ -31,6 +31,7 @@
 \geometry{margin=1in, headsep=0.25in}
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[subsection]
+\newtheorem{lemma}{lemma}[subsection]
 \newtheorem{reg}{Rule}
 \newtheorem{exer}{Exercise}[subsection]
 \newtheorem{note}{Note}[subsection]
@@ -582,6 +583,111 @@ Here is an example:
 
 \subsubsection{Do we have sets of connectives that are not adequate?}
 It is clear the symbol $\wedge$, $\vee$ and $\Rightarrow$ is not adequate by themselves. But if we define new connectives like $p \uparrow q = \neg (p \wedge q)$ or $p \downarrow q = \neg (p \vee q)$, it can be shown that both $\left\{ \uparrow \right\}$ and $\left\{ \downarrow \right\}$ are adequate.
+
+\subsection{First order logic}
+\textbf{First-order logic} (or \textbf{predicate calculus})is symbolized reasoning in which each sentence, or statement, is broken down into a subject and a predicate. Here are some examples:
+\begin{eg}
+    \quad
+    \begin{itemize}
+        \item There \textit{exists} a rational number $x$ with $x^2=2$.
+        \item \textit{For all} natural number $n$, there \textit{exists} a natural number $m$ with $m>n$.
+    \end{itemize}
+\end{eg}
+
+\subsubsection{First order formulae}
+Here we would give an informal definition of first order formulae.
+
+A simple example of a first order formula looks like this:
+\begin{equation}
+    \forall x \exists y \: R(x,y)
+\end{equation}
+The meaning of this equation refers to ``\textit{for all} $x$, there \textit{exists} a $y$, such that $x$ and $y$ are related by the relation $R$''. Like a WFF, this equation is not true or false at this moment. We need more information like what sort thing the $x$s and $y$s are and what the relation $R$ is, to decide the truth value.
+
+\subsubsection{Construction of first order formulae}
+First order formulae are made up of:
+\begin{itemize}
+    \item quantifiers $\forall$ and $\exists$
+    \item logical connectives $\neg$, $\wedge$, $\vee$, $\Rightarrow$, and brackets
+    \item variable symbols $x$, $y$, $z$, $\dots$
+    \item relation symbols $R$, $Q$, $P$, $\dots$.
+\end{itemize}
+
+For an indicator $R(x,y)$, it indicates that $x$ and $y$ are related by some relation $R$. It is a ``two-variable relation'' since it contains two variables $x$ and $y$. Here are some examples of two-variable relation: $x=y$, $x>y$, $x \neq y$, etc. It can be true or false, depending on the variables themselves.
+
+Relation are allowed on any number of things. Just like two-variable relation, we have ``one-variable relation'' like $R(x)$, which is just a true or false property of a single thing $x$. We also have ``three-variable relation'' like $R(x,y,z):x+y=z$, and so on.
+
+
+\section{Interpretations}
+\begin{shaded}
+    \begin{defn}
+        An \textbf{interpretation} of a first order formula consists of a set $A$, called the \textbf{domain} of the interpretation, and a relation on $A$ for each relation symbol in the formula.
+    \end{defn}
+\end{shaded}
+
+Variables can be elements of the domain $A$ of the interpretation in an interpreted formula. We write $\forall x \in A$ to mean ``\textit{for all} $x$ in $A$'', and $\exists x \in A$ to mean ``there \textit{exists} an element $x \in A$''.
+
+Once we have interpreted a formula, we can try to decide the truth value.
+
+\begin{eg}
+    For a first order formula $\forall x \exists y \: R(x,y)$, we could some interpretations. Define the notation $\mathbb{N}$ as the set of all natural numbers $\left\{ 0,1,2,\dots \right\}$.
+
+    \begin{itemize}
+        \item Domain $\mathbb{N}$, relation $R$ is $<$. The interpreted formula is written: \begin{equation}
+            \forall x \in N \: \exists y \in N \: x<y
+        \end{equation}
+        The interpreted formula is \textbf{true}, since for every natural number we could find a number greater than it by 1.
+        \item Domain $\mathbb{N}$, relation $R$ is $>$. The interpreted formula is written: \begin{equation}
+            \forall x \in N \: \exists y \in N \: x>y
+        \end{equation}
+        The interpreted formula is \textbf{false}, since it is not true for every natural number there exists a natural number smaller than it. For example, when $x=0$, there \textit{does not exist} a $y$ as a natural number which satisfies $y<0$.
+    \end{itemize}
+
+\end{eg}
+
+We could provide another example:
+\begin{eg}
+    For a first order formula $\exists y \forall x \: R(x,y)$:
+    \begin{itemize}
+        \item Domain $\mathbb{N}$, relation $R$ is $\leq$. The interpreted formula is written: \begin{equation}
+            \exists y \in N \: \forall x \in N \: x \leq y
+        \end{equation}
+        This formula is \textbf{false} since there \textit{does not exist} a $y$ \textit{for all} $x$ such that $x \leq y$. Because for all $y$, there exists an $x$ such that $x$ is greater than $y$.
+        \item Domain $\mathbb{N}$, relation $R$ is $\geq$. The interpreted formula is written: \begin{equation}
+            \exists y \in N \: \forall x \in N \: x \geq y
+        \end{equation}
+        This formula is \textbf{true} since when $y=0$, \textit{for all} $x$ as natural number we have $x \geq y$.
+    \end{itemize}
+\end{eg}
+
+\subsubsection{Truth of quantified formulae}
+Rules for deciding whether a formula containing a quantifier is true in an interpretation with domain $A$ are:
+\begin{itemize}
+    \item An interpreted formula $\forall x \in A \: \phi$ is true, if for every element $a$ of $A$, substituting $a$ into $\phi$ in place of $x$ gives a truth statement.
+    \item An interpreted formula $\exists x \in A \: \phi$ is true, if there exists an element of $a$ of $A$, substituting $a$ into $\phi$ in place of $x$ gives a truth statement.
+\end{itemize}
+
+\subsection{First order equivalences}
+\begin{shaded}
+    \begin{defn}
+        Two first order formulae $F_1$ and $F_2$ are called \textbf{logically equivalent} if and only if, in every interpretation, $F_1$ and $F_2$ have the same truth value. We write $F_1 \equiv F_2$ for two logically equivalent formulae.
+    \end{defn}
+\end{shaded}
+
+\subsubsection{Example of logically equivalent statements}
+\begin{lemma}
+    \:
+    \begin{enumerate}
+        \item $\forall x \forall y \: P(x,y) \equiv \forall y \forall x \: P(x,y)$
+        \item $\forall x \exists y \: P(x,y) \not\equiv \exists y \forall x \: P(x,y)$
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \:
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{proof}
 \newpage
 
 \begin{comment}
