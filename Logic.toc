@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {1.11}First order logic}{14}{}%
 \contentsline {subsubsection}{\numberline {1.11.1}First order formulae}{14}{}%
 \contentsline {subsubsection}{\numberline {1.11.2}Construction of first order formulae}{15}{}%
-\contentsline {section}{\numberline {2}Interpretations}{15}{}%
-\contentsline {subsubsection}{\numberline {2.0.1}Truth of quantified formulae}{16}{}%
-\contentsline {subsection}{\numberline {2.1}First order equivalences}{16}{}%
-\contentsline {subsubsection}{\numberline {2.1.1}Example of logically equivalent statements}{16}{}%
+\contentsline {subsection}{\numberline {1.12}Interpretations}{15}{}%
+\contentsline {subsubsection}{\numberline {1.12.1}Truth of quantified formulae}{16}{}%
+\contentsline {subsection}{\numberline {1.13}First order equivalences}{16}{}%
+\contentsline {subsubsection}{\numberline {1.13.1}Example of logically equivalent statements}{16}{}%
